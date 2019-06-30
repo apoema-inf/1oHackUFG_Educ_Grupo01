@@ -31,7 +31,7 @@
 					<?= validation_errors(); ?>	
 					
 					<div class="box-body">
-					<?php $atributos = array('class' => 'form-horizontal'); echo form_open('index.php/credenciamento/credenciar',$atributos) ?>	
+					<?php $atributos = array('class' => 'form-horizontal'); echo form_open('index.php/credenciamento/inscritos',$atributos) ?>	
 						
 						<div class="form-group">
 							<label class="col-md-2 control-label">Áreas de Conhecimento</label>
