@@ -1,6 +1,17 @@
  <template>
   <div>
     <img @click="changeShows('Perfil')" width="250" src="../assets/logo.png" />
+    <div class="container-fluid" v-if="showLogin">
+      <h1>Login</h1>
+      <br />
+      <h2>Usuário</h2>
+      <el-input placeholder="Nome do Usuário" v-model="inputUser" clearable></el-input>
+      <br />
+      <h2>Senha</h2>
+      <el-input placeholder="Digite sua senha" v-model="inputSenha" show-password></el-input>
+      <br />
+      <el-button type="primary" round @click="changeShows('Perfil')">Entrar</el-button>
+    </div>
     <div class="container-fluid" v-if="showPerfil">
       <br />
       <h1 style="text-align: center">Perfil de Usuário</h1>
@@ -41,7 +52,7 @@
         :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
         style="width: 100%"
       >
-        <el-table-column label="Pontos Necessários" prop="pontos"></el-table-column>
+        <el-table-column label="Pontos" prop="pontos"></el-table-column>
         <el-table-column label="Parceiros" prop="parceiro"></el-table-column>
         <el-table-column label="Prêmio" prop="premio"></el-table-column>
         <el-table-column align="right">
@@ -68,7 +79,10 @@ export default {
   async created() {},
   data() {
     return {
-      showPerfil: true,
+      inputUser: "",
+      inputSenha: "",
+      showLogin: true,
+      showPerfil: false,
       showPremiacao: false,
       showEventos: false,
       currentDate: moment().format("LLLL"),
@@ -82,14 +96,16 @@ export default {
         {
           nome: "2 Hackthon UFG",
           img: "https://picsum.photos/600/300/?image=24",
-          descricao: "Local do Evento: Centro de Aulas D, Público alvo: Alunos da UFG",
-          horas: 24,
-          pontos: 24
+          descricao:
+            "Local do Evento: Centro de Aulas D, Público alvo: Alunos da UFG",
+          horas: 75,
+          pontos: 75
         },
         {
           nome: "Semináro de Políticas Públicas",
           img: "https://picsum.photos/600/300/?image=23",
-          descricao: "Local do Evento: Faculdade de Direito, Público alvo: Alunos da UFG",
+          descricao:
+            "Local do Evento: Faculdade de Direito, Público alvo: Alunos da UFG",
           horas: 10,
           pontos: 10
         },
@@ -97,8 +113,8 @@ export default {
           nome: "Como falar em público",
           img: "https://picsum.photos/600/300/?image=25",
           descricao: "Local do Evento: Sempreende",
-          horas: 4,
-          pontos: 4
+          horas: 25,
+          pontos: 25
         },
         {
           nome: "Semana da Informática",
@@ -110,24 +126,24 @@ export default {
       ],
       tableData: [
         {
-          pontos: 250,
+          pontos: 100,
           parceiro: "Livraria UFG",
           premio: "10% de desconto na Livraria UFG"
         },
         {
-          pontos: 350,
+          pontos: 150,
           parceiro: "Sebrae",
           premio: "50% de desconto no curso de sua escolha"
         },
         {
-          pontos: 400,
+          pontos: 180,
           parceiro: "Sebrae",
           premio: "80% de desconto no curso de sua escolha"
         },
         {
-          pontos: 500,
+          pontos: 200,
           parceiro: "Sempreende",
-          premio: "Vale Curso - Finanças Pessoais - dia 23/08"
+          premio: "Vale Curso Online - Finanças Pessoais"
         }
       ],
       search: ""
@@ -138,13 +154,22 @@ export default {
       if (show == "Eventos") {
         this.showEventos = true;
         this.showPerfil = false;
+        this.showLogin = false;
       }
       if (show == "Premiacao") {
         this.showPremiacao = true;
         this.showPerfil = false;
+        this.showLogin = false;
       }
       if (show == "Perfil") {
         this.showPerfil = true;
+        this.showLogin = false;
+        this.showPremiacao = false;
+        this.showEventos = false;
+      }
+      if (show == "Login") {
+        this.showLogin = true;
+        this.showPerfil = false;
         this.showPremiacao = false;
         this.showEventos = false;
       }
@@ -161,7 +186,9 @@ export default {
       console.log(index, row);
       if (this.perfil.score > row.pontos) {
         this.perfil.score = this.perfil.score - row.pontos;
-        this.$swal("Pontos trocados com sucesso, o vouncher foi enviado para seu email").then(result => {
+        this.$swal(
+          "Pontos trocados com sucesso, o vouncher foi enviado para seu email"
+        ).then(result => {
           if (result) this.changeShows("Perfil");
         });
       } else {
