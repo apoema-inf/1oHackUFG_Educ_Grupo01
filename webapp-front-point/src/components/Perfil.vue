@@ -26,23 +26,91 @@
     </div>
     <div class="container-fluid" v-if="showEventos">
       <div class="row">
-        <el-row>
-          <el-col :span="8" v-for="(o, index) in eventos" :key="o" :offset="index > 0 ? 2 : 0">
-            <el-card :body-style="{ padding: '0px' }">
-              <img :src="o.img" class="image" />
-              <div style="padding: 14px;">
-                <span>{{o.nome}}</span>
-                <div class="bottom clearfix">
-                  <time class="time">{{ currentDate }}</time>
-                  <br />
-                  <el-button @click="inscrever(index)" type="primary">Inscrever</el-button>
-                  <br />
+        <div>
+          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+            <b-row no-gutters>
+              <b-col md="6">
+                <b-card-img :src="eventos[0].img" class="rounded-0"></b-card-img>
+              </b-col>
+              <b-col md="6">
+                <b-card-body :title="eventos[0].nome">
+                  <b-card-text>
+                    {{eventos[0].descricao}}
+                  </b-card-text>
+                  <b-button variant="primary" @click="inscrever(0)">Inscrever</b-button>
+                  <br>
                   <el-button type="text" class="button">Saber Mais</el-button>
-                </div>
+                </b-card-body>
+              </b-col>
+            </b-row>
+          </b-card>
+          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+            <b-row no-gutters>
+              <b-col md="6">
+                <b-card-img :src="eventos[1].img" class="rounded-0"></b-card-img>
+              </b-col>
+              <b-col md="6">
+                <b-card-body :title="eventos[1].nome">
+                  <b-card-text>
+                   {{eventos[1].descricao}}
+                  </b-card-text>
+                  <b-button variant="primary" @click="inscrever(1)">Inscrever</b-button>
+                  <br>
+                  <el-button type="text" class="button">Saber Mais</el-button>
+                </b-card-body>
+              </b-col>
+            </b-row>
+          </b-card>
+          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+            <b-row no-gutters>
+              <b-col md="6">
+                <b-card-img :src="eventos[2].img" class="rounded-0"></b-card-img>
+              </b-col>
+              <b-col md="6">
+                <b-card-body :title="eventos[2].nome">
+                  <b-card-text>
+                    {{eventos[2].descricao}}
+                  </b-card-text>
+                  <b-button variant="primary" @click="inscrever(2)">Inscrever</b-button>
+                  <br>
+                  <el-button type="text" class="button">Saber Mais</el-button>
+                </b-card-body>
+              </b-col>
+            </b-row>
+          </b-card>
+          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+            <b-row no-gutters>
+              <b-col md="6">
+                <b-card-img :src="eventos[3].img" class="rounded-0"></b-card-img>
+              </b-col>
+              <b-col md="6">
+                <b-card-body :title="eventos[3].nome">
+                  <b-card-text>
+                   {{eventos[3].descricao}}
+                  </b-card-text>
+                  <b-button variant="primary" @click="inscrever(3)">Inscrever</b-button>
+                  <br>  
+                  <el-button type="text" class="button">Saber Mais</el-button>
+                </b-card-body>
+              </b-col>
+            </b-row>
+          </b-card>
+        </div>
+        <!-- <el-col :span="12" v-for="(o, index) in eventos" :key="o" :offset="index > 0 ? 2 : 0">
+          <el-card :body-style="{ padding: '0px' }">
+            <img :src="o.img" class="image" />
+            <div style="padding: 14px;">
+              <span>{{o.nome}}</span>
+              <div class="bottom clearfix">
+                <time class="time">{{ currentDate }}</time>
+                <br />
+                <el-button @click="inscrever(index)" type="primary">Inscrever</el-button>
+                <br />
+                <el-button type="text" class="button">Saber Mais</el-button>
               </div>
-            </el-card>
-          </el-col>
-        </el-row>
+            </div>
+          </el-card>
+        </el-col> -->
       </div>
     </div>
     <br />
@@ -87,7 +155,7 @@ export default {
       showEventos: false,
       currentDate: moment().format("LLLL"),
       perfil: {
-        nome: "Vitor",
+        nome: "Gabriel",
         score: 0,
         horas: 0,
         eventos_cadastrados: 0
