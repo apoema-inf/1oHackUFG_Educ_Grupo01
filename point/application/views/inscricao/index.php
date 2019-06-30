@@ -46,9 +46,9 @@
 								<!-- Add the bg color to the header using any of the bg-* classes -->
 								<a href="<?php echo site_url('index.php/inscricao/inscrever/'.$ev->eventos_id.'/'.$this->session->userdata('logged_in')['usuarios_id'])?>">
 								<div class="widget-user-header <?= cor_box($i) ?>">
-									<div class="widget-user-image">
-										<img class="img-circle" src="<?php echo base_url('assets/upload/eventos/hackathon.png')?>" alt="Evento">
-									</div>
+									<!-- <div class="widget-user-image">
+										<img class="img-circle" src="<?php // echo base_url('assets/upload/eventos/hackathon.png')?>" alt="Evento">
+									</div> -->
 									<!-- /.widget-user-image -->
 									<h3 class="widget-user-username"><?= $ev->eventos_descricao ?></h3>
 									<h5 class="widget-user-desc"><?= info_evento($ev->eventos_data_inicial,$ev->eventos_data_final,$ev->eventos_horario_inicial,$ev->eventos_horario_final); ?> </h5>

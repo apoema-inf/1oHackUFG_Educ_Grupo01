@@ -44,7 +44,7 @@
 							<div class="col-md-5 inputGroupContainer">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-th-list"></i></span>
-									<select required name="credenciamento_usuario_id"  class="form-control">
+									<select required name="usuarios_id"  class="form-control">
 										<option selected disabled>Selecione uma área</option>
 										<?php 
 										if(empty($usuarios)){
@@ -60,12 +60,12 @@
 							</div>
 						</div>					
 						
-						<input name="credenciamento_credenciador_usuarios_id" value="<?= $this->session->userdata('logged_in')['usuarios_id'] ?>" type="hidden"  >
+						<input name="credenciador_id" value="<?= $this->session->userdata('logged_in')['usuarios_id'] ?>" type="hidden"  >
 						<input name="eventos_id" value="<?= $eventos['eventos_id']?>" type="hidden"  >
 					
 						<div class="form-group">
 							<div class="col-lg-9 col-lg-offset-3">
-							<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar</button>
+							<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Credenciar</button>
 							</div>
 						</div>
 						<br />

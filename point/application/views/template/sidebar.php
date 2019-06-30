@@ -75,8 +75,8 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url('index.php/credenciamento')?>">
-                        <i class="glyphicon glyphicon-th-list"></i> <span>Credenciamento</span>
+                    <a href="<?php echo base_url('index.php/inscricao')?>">
+                        <i class="fa fa-reorder"></i> <span>Inscrição</span>
                         <span class="pull-right-container">
                             <small class="label pull-right bg-green"></small>
                         </span>
@@ -84,13 +84,15 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url('index.php/inscricao')?>">
-                        <i class="glyphicon glyphicon-th-list"></i> <span>Inscrição</span>
+                    <a href="<?php echo base_url('index.php/credenciamento')?>">
+                        <i class="fa fa-check-square-o"></i> <span>Credenciamento</span>
                         <span class="pull-right-container">
                             <small class="label pull-right bg-green"></small>
                         </span>
                     </a>
                 </li>
+
+                
 
 
             
