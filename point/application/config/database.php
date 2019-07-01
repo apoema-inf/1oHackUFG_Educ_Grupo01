@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'vilsonsoares.com.br',
-	'username' => 'vilso958',
-	'password' => 'vsi16961',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'vilso958_point',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
