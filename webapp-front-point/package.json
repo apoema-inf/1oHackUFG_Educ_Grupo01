@@ -13,7 +13,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.24",
     "element-ui": "^2.10.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "sweetalert2": "^8.13.0",
     "vue": "^2.5.11",
     "vue-router": "^3.0.6",
